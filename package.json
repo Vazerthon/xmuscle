@@ -1,8 +1,8 @@
 {
-  "name": "web-app-boilerplate",
+  "name": "xmuscle",
   "version": "1.0.0",
-  "description": "web-app-boilerplate",
-  "repository": "git@github.com:Vazerthon/web-app-boilerplate.git",
+  "description": "xmuscle",
+  "repository": "git@github.com:Vazerthon/xmuscle.git",
   "author": "Paul Vallis <vallis1@gmail.com>",
   "license": "Apache-2.0",
   "scripts": {

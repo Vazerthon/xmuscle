@@ -1,6 +1,10 @@
 {
-  "name": "web-app-boilerplate",
+  "name": "xmuscle",
   "version": "1.0.0",
+  "description": "xmuscle",
+  "repository": "git@github.com:Vazerthon/xmuscle.git",
+  "author": "Paul Vallis <vallis1@gmail.com>",
+  "license": "Apache-2.0",
   "scripts": {
     "start-dev": "react-scripts start",
     "build": "react-scripts build",
