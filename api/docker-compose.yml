@@ -1,0 +1,34 @@
+version: '3.7'
+
+volumes:
+  db-data:
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - ./:/data
+    links:
+      - db
+    ports:
+      - 4000:4000
+    environment:
+      NODE_ENV: development
+      DB_HOST: 
+      DB_USER:
+      DB_PASS:
+      DB_NAME:
+  db:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+    command: postgres
+    ports:
+     - "5432:5432"
+    environment:
+     PGDATA: /var/lib/postgresql/data/pgdata
+     POSTGRES_PASSWORD: ${DB_PASS}
+     POSTGRES_USER: ${DB_USER}
+     POSTGRES_DB: ${DB_NAME}
