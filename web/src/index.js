@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import theme from './theme';
 import apolloClient from './graphql/client';
 import { AuthContextProvider } from './context/auth';
-import App from './app';
+import App from './components/app';
 
 /* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(

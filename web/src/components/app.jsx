@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Route, Switch, Router } from 'react-router-dom';
 
-import history from './history';
-import AuthContext from './context/auth';
-import paths from './paths';
+import history from '../history';
+import AuthContext from '../context/auth';
+import paths from '../paths';
 
-import Login from './components/pages/Login';
-import Home from './components/pages/Home';
+import Login from './pages/Login';
+import Home from './pages/Home';
 
 export default function App() {
   const authContext = useContext(AuthContext);
