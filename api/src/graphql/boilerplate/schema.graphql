@@ -1,7 +1,0 @@
-type Boilerplate {
-  name: String!
-}
-
-type Query {
-  boilerplate: Boilerplate
-}
