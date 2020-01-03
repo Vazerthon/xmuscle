@@ -1,6 +1,7 @@
 
 const developmentSettings = {
   apiAddress: 'http://localhost:4000',
+  googleClientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
 };
 
 const productionSettings = {
