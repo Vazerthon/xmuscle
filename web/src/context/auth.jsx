@@ -2,9 +2,9 @@ import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
 
 const context = {
-  isAuthenticated: !!localStorage.getItem('token'),
   getAuthToken: () => localStorage.getItem('token'),
-  setAuthToken: () => localStorage.setItem('token'),
+  setAuthToken: value => localStorage.setItem('token', value),
+  isAuthenticated: !!localStorage.getItem('token'),
 };
 
 const AuthContext = createContext(context);
