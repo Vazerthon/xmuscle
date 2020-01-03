@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch, Router } from 'react-router-dom';
-import { ThemeProvider } from 'emotion-theming';
 
-import theme from './theme';
 import history from './history';
+import AuthContext from './context/auth';
+import paths from './paths';
 
-import Home from './components/Home';
+import Login from './components/pages/Login';
+import Home from './components/pages/Home';
 
-export default function () {
+export default function App() {
+  const authContext = useContext(AuthContext);
+
+  const onLoginPage = paths.current === paths.pages.login;
+  if (!authContext.isAuthenticated && !onLoginPage) {
+    paths.goTo(paths.pages.login);
+  }
+
   return (
-    <ThemeProvider theme={theme}>
-      <Router history={history}>
-        <Switch>
-          <Route path="/" exact render={() => <Home />} />
-        </Switch>
-      </Router>
-    </ThemeProvider>
+    <Router history={history}>
+      <Switch>
+        <Route path={paths.pages.login} exact render={Login} />
+        <Route path={paths.pages.home} exact render={Home} />
+      </Switch>
+    </Router>
   );
 }
