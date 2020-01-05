@@ -13,6 +13,7 @@ export default () => {
     typeDefs: schema,
     resolvers: resolver,
     context: ({ req }) => {
+      console.log('auth:');
       console.log(req.headers.authorization);
     },
   });

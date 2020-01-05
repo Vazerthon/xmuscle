@@ -1,15 +1,16 @@
 import React from 'react';
-// import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
+import LOGIN from '../../graphql/queries/login';
 
-// import LOGIN from '../../graphql/queries/login';
-import useTest from './useTest';
 
 export default function Home() {
-  // const { loading, error, data } = useQuery(LOGIN);
-  const [x] = useTest();
+  const { loading, error, data } = useQuery(LOGIN);
+
   return (
     <div>
-      {x}
+      { loading && 'loading...' }
+      { error && `error: ${error}`}
+      {data && data.login.id}
     </div>
   );
 }

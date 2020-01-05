@@ -17,8 +17,8 @@ export default function App() {
 
   return (
     <Switch>
-      <Route path={paths.pages.login} exact render={Login} />
-      <Route path={paths.pages.home} exact render={Home} />
+      <Route path={paths.pages.login} exact render={() => <Login />} />
+      <Route path={paths.pages.home} exact render={() => <Home />} />
     </Switch>
   );
 }
