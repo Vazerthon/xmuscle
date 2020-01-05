@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { Route, Switch, Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-import history from '../history';
-import AuthContext from '../context/auth';
 import paths from '../paths';
+import AuthContext from '../context/auth';
 
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -17,11 +16,9 @@ export default function App() {
   }
 
   return (
-    <Router history={history}>
-      <Switch>
-        <Route path={paths.pages.login} exact render={Login} />
-        <Route path={paths.pages.home} exact render={Home} />
-      </Switch>
-    </Router>
+    <Switch>
+      <Route path={paths.pages.login} exact render={Login} />
+      <Route path={paths.pages.home} exact render={Home} />
+    </Switch>
   );
 }

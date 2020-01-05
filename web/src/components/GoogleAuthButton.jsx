@@ -13,9 +13,9 @@ export default function GoogleAuthButton() {
   }
 
   const handleSuccess = response => {
-    // const email = response.w3.U3;
     const { accessToken } = response;
     authContext.setAuthToken(accessToken);
+
     paths.goTo(paths.pages.home);
   };
 

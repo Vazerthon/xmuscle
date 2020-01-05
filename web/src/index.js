@@ -1,21 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router } from 'react-router-dom';
 import { ThemeProvider } from 'emotion-theming';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-import registerServiceWorker from './registerServiceWorker';
 import theme from './theme';
-import apolloClient from './graphql/client';
 import { AuthContextProvider } from './context/auth';
+import apolloClient from './graphql/client';
+import history from './history';
+
+import registerServiceWorker from './registerServiceWorker';
 import App from './components/app';
 
 /* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(
   <ApolloProvider client={apolloClient}>
     <ThemeProvider theme={theme}>
-      <AuthContextProvider>
-        <App />
-      </AuthContextProvider>
+      <Router history={history}>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </Router>
     </ThemeProvider>
   </ApolloProvider>,
   document.getElementById('root'),
