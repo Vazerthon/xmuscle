@@ -12,6 +12,9 @@ export default () => {
   const server = new ApolloServer({
     typeDefs: schema,
     resolvers: resolver,
+    context: ({ req }) => {
+      console.log(req.headers.authorization);
+    },
   });
 
   server.listen().then(({ url }) => {
