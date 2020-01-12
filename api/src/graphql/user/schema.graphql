@@ -1,7 +1,7 @@
-type User {
-  id: String!
+type Auth {
+  accessToken: String!
 }
 
-type Query {
-  login: User
+type Mutation {
+  login(code: String!): Auth
 }

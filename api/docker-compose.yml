@@ -20,6 +20,9 @@ services:
       DB_USER:
       DB_PASS:
       DB_NAME:
+      GOOGLE_CLIENT_ID:
+      GOOGLE_CLIENT_SECRET:
+      GOOGLE_REDIRECT_URI:
   db:
     image: postgres
     volumes:

@@ -1,6 +1,9 @@
 // eslint-disable-next-line import/prefer-default-export
 export const resolver = {
-  Query: {
-    login: () => ({ id: 'x' }),
+  Mutation: {
+    login: (_, { code }, { services }) => services.auth
+      .getAccessToken(code)
+      .then(accessToken => ({ accessToken }))
+      .catch(() => { throw new Error('Error loging in. Please try again'); }),
   },
 };
