@@ -26,7 +26,8 @@
     "nodemon": "^2.0.2",
     "pg": "^7.17.0",
     "ramda": "^0.26.1",
-    "schemaglue": "^4.0.4"
+    "schemaglue": "^4.0.4",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
