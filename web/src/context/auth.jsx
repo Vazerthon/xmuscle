@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 const context = {
   getAuthToken: () => localStorage.getItem('token'),
   setAuthToken: value => localStorage.setItem('token', value),
+  getUserId: () => localStorage.getItem('userId'),
+  setUserId: value => localStorage.setItem('userId', value),
   isAuthenticated: !!localStorage.getItem('token'),
 };
 
