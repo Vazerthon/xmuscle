@@ -10,20 +10,24 @@
     "start-dev": "docker-compose kill && docker-compose build && docker-compose up",
     "build-app-dev": "babel src -d dist --no-comments --copy-files --ignore node_modules",
     "run-node": "cd dist && node --inspect=0.0.0.0:9229 .",
-    "start-app-dev": "nodemon --watch src/ -e js --exec \"npm run build-app-dev && npm run run-node\"",
+    "start-app-dev": "nodemon --watch src/ -e js,graphql --exec \"npm run build-app-dev && npm run run-node\"",
     "db": "knex",
     "migrate:latest": "npm run db migrate:latest",
     "seed": "npm run db seed:run",
     "lint": "eslint ."
   },
   "dependencies": {
-    "apollo-server": "^2.9.14",
+    "@hapi/boom": "^9.0.0",
+    "apollo-server": "^2.9.15",
     "dotenv": "^8.2.0",
+    "google-auth-library": "^5.7.0",
     "graphql": "^14.5.8",
-    "knex": "^0.20.4",
+    "knex": "^0.20.6",
     "nodemon": "^2.0.2",
-    "pg": "^7.15.2",
-    "schemaglue": "^4.0.4"
+    "pg": "^7.17.0",
+    "ramda": "^0.26.1",
+    "schemaglue": "^4.0.4",
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

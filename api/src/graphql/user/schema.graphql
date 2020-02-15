@@ -1,0 +1,8 @@
+type Auth {
+  accessToken: String!
+  id: String!
+}
+
+type Mutation {
+  register(code: String!): Auth
+}

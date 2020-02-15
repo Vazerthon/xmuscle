@@ -1,9 +1,9 @@
 import { gql } from 'apollo-boost';
 
 export default gql`
-  {
-    boilerplate {
-      name
+  query test {
+    test {
+      message
     }
   }
 `;
