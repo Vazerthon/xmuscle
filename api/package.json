@@ -10,7 +10,7 @@
     "start-dev": "docker-compose kill && docker-compose build && docker-compose up",
     "build-app-dev": "babel src -d dist --no-comments --copy-files --ignore node_modules",
     "run-node": "cd dist && node --inspect=0.0.0.0:9229 .",
-    "start-app-dev": "nodemon --watch src/ -e js --exec \"npm run build-app-dev && npm run run-node\"",
+    "start-app-dev": "nodemon --watch src/ -e js,graphql --exec \"npm run build-app-dev && npm run run-node\"",
     "db": "knex",
     "migrate:latest": "npm run db migrate:latest",
     "seed": "npm run db seed:run",

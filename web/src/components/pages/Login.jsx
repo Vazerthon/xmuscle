@@ -13,8 +13,8 @@ export default function Home() {
     nagivateToHomePage();
   }
 
-  const makeSuccessHandler = mode => ({ data }) => {
-    const { accessToken, id } = data[mode];
+  const handleSuccess = ({ data }) => {
+    const { accessToken, id } = data.register;
     authContext.setAuthToken(accessToken);
     authContext.setUserId(id);
     nagivateToHomePage();
@@ -25,17 +25,9 @@ export default function Home() {
   return (
     <>
       <GoogleAuthButton
-        mode="login"
-        onSuccess={makeSuccessHandler('login')}
+        onSuccess={handleSuccess}
         onFailure={makeFailureHandler(
-          'Something went wrong while logging you in, please try again',
-        )}
-      />
-      <GoogleAuthButton
-        mode="register"
-        onSuccess={makeSuccessHandler('register')}
-        onFailure={makeFailureHandler(
-          'Something went wrong while registering your account, please try again',
+          'Sorry, something went wrong, please try again',
         )}
       />
       {errorMessage && <span>{errorMessage}</span>}

@@ -11,9 +11,15 @@ export default () => {
   const server = new ApolloServer({
     typeDefs: schema,
     resolvers: resolver,
-    context: () => ({
-      services,
-    }),
+    context: async ({ req }) => {
+      const bearer = req.headers.authorization || '';
+      const user = bearer ? await services.auth.getUserFromBearerToken(bearer) : null;
+
+      return {
+        services,
+        user,
+      };
+    },
   });
 
   server.listen().then(({ url }) => {

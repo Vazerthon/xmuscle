@@ -3,18 +3,12 @@ import PropTypes from 'prop-types';
 import { GoogleLogin } from 'react-google-login';
 import { useMutation } from '@apollo/react-hooks';
 
-import LOGIN from '../graphql/mutations/login';
 import REGISTER from '../graphql/mutations/register';
 
 import settings from '../settings';
 
-export default function GoogleAuthButton({ mode, onSuccess, onFailure }) {
-  const [mutation] = useMutation(
-    {
-      login: LOGIN,
-      register: REGISTER,
-    }[mode],
-  );
+export default function GoogleAuthButton({ onSuccess, onFailure }) {
+  const [mutation] = useMutation(REGISTER);
 
   const handleSuccess = ({ code }) => {
     mutation({ variables: { code } }).then(onSuccess);
@@ -23,7 +17,7 @@ export default function GoogleAuthButton({ mode, onSuccess, onFailure }) {
   return (
     <GoogleLogin
       clientId={settings.googleClientId}
-      buttonText={mode}
+      buttonText="Login / Register"
       onSuccess={handleSuccess}
       onFailure={onFailure}
       cookiePolicy="single_host_origin"
@@ -35,7 +29,6 @@ export default function GoogleAuthButton({ mode, onSuccess, onFailure }) {
 }
 
 GoogleAuthButton.propTypes = {
-  mode: PropTypes.oneOf(['login', 'register']).isRequired,
   onSuccess: PropTypes.func.isRequired,
   onFailure: PropTypes.func.isRequired,
 };

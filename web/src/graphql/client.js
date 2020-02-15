@@ -5,10 +5,10 @@ import settings from '../settings';
 export default new ApolloClient({
   uri: settings.apiAddress,
   request: operation => {
-    const token = localStorage.getItem('token'); // TODO maybe put this key in settings
+    const token = localStorage.getItem('token');
     operation.setContext({
       headers: {
-        authorization: token ? `Bearer ${token}` : '',
+        authorization: token ? `Bearer ${token}` : undefined,
       },
     });
   },

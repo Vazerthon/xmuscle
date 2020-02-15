@@ -5,5 +5,4 @@ type Auth {
 
 type Mutation {
   register(code: String!): Auth
-  login(code: String!): Auth
 }

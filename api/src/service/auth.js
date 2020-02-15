@@ -32,18 +32,14 @@ const register = async code => {
     .catch(throwFailedLoginError);
 };
 
-const login = async code => {
-  const { accessToken, info } = await getTokenInfoFromCode(code);
-  const returnAuthDetailsOrThrow = user => (user
-    ? { accessToken, id: user.id }
-    : throwFailedLoginError());
-
-  return getUserFromAuthId(info)
-    .then(returnAuthDetailsOrThrow)
-    .catch(throwFailedLoginError);
+const getUserFromBearerToken = bearer => {
+  const token = bearer.replace('Bearer ', '');
+  return tokenService.getAccessTokenInfo(token)
+    .then(getUserFromAuthId)
+    .catch(() => null);
 };
 
 export default {
-  login,
   register,
+  getUserFromBearerToken,
 };
