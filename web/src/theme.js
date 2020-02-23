@@ -1,21 +1,34 @@
-const spacingUnit = 8;
+import { linearGradient } from 'polished';
+
+const spacingUnit = 0.25;
+
+const primary = '#212e4e';
+const secondary = '#6c372c';
+const highlight = '#54d3e9';
+const shadow = '#1f181d';
 
 export default {
-  fontFamily: 'sans-serif',
   colour: {
-    primary: 'red',
-    secondary: 'green',
+    primary,
+    secondary,
+    highlight,
+    shadow,
     neutral: {
-      black: '#222222',
-      white: '#ffffff',
-      grey: '#cecece',
+      dark: '#111316',
+    },
+    gradient: {
+      primary: linearGradient({
+        colorStops: [primary, shadow],
+        toDirection: 'to bottom right',
+        fallback: primary,
+      }),
     },
   },
   spacing: {
     unit: spacingUnit,
-    units: multiple => `${multiple * spacingUnit}px`,
+    units: multiple => `${multiple * spacingUnit}rem`,
   },
   typography: {
-    // todo
+    fontFamily: 'sans-serif',
   },
 };

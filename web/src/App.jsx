@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import paths from './paths';
 import AuthContext from './context/Auth';
 
+import SiteContainer from './components/primitives/layout/SiteContainer';
 import Login from './pages/Login';
 import Home from './pages/Home';
 
@@ -16,9 +17,11 @@ export default function App() {
   }
 
   return (
-    <Switch>
-      <Route path={paths.pages.login} exact render={() => <Login />} />
-      <Route path={paths.pages.home} exact render={() => <Home />} />
-    </Switch>
+    <SiteContainer>
+      <Switch>
+        <Route path={paths.pages.login} exact render={() => <Login />} />
+        <Route path={paths.pages.home} exact render={() => <Home />} />
+      </Switch>
+    </SiteContainer>
   );
 }

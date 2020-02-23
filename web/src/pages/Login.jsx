@@ -3,6 +3,7 @@ import GoogleAuthButton from '../components/GoogleAuthButton';
 
 import paths from '../paths';
 import AuthContext from '../context/Auth';
+import CentreCentre from '../components/primitives/layout/CentreCentre';
 
 export default function Home() {
   const authContext = useContext(AuthContext);
@@ -23,7 +24,7 @@ export default function Home() {
   const makeFailureHandler = message => () => setErrorMessage(message);
 
   return (
-    <>
+    <CentreCentre>
       <GoogleAuthButton
         onSuccess={handleSuccess}
         onFailure={makeFailureHandler(
@@ -31,6 +32,6 @@ export default function Home() {
         )}
       />
       {errorMessage && <span>{errorMessage}</span>}
-    </>
+    </CentreCentre>
   );
 }
