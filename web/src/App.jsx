@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import paths from '../paths';
-import AuthContext from '../context/auth';
+import paths from './paths';
+import AuthContext from './context/Auth';
 
 import Login from './pages/Login';
 import Home from './pages/Home';

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import GoogleAuthButton from '../GoogleAuthButton';
+import GoogleAuthButton from '../components/GoogleAuthButton';
 
-import paths from '../../paths';
-import AuthContext from '../../context/auth';
+import paths from '../paths';
+import AuthContext from '../context/Auth';
 
 export default function Home() {
   const authContext = useContext(AuthContext);
