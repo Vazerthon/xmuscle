@@ -4,6 +4,8 @@ import GoogleAuthButton from '../components/GoogleAuthButton';
 import paths from '../paths';
 import AuthContext from '../context/Auth';
 import CentreCentre from '../components/primitives/layout/CentreCentre';
+import Stack from '../components/primitives/layout/Stack';
+import Error from '../components/primitives/typography/Error';
 
 export default function Home() {
   const authContext = useContext(AuthContext);
@@ -25,13 +27,14 @@ export default function Home() {
 
   return (
     <CentreCentre>
-      <GoogleAuthButton
-        onSuccess={handleSuccess}
-        onFailure={makeFailureHandler(
-          'Sorry, something went wrong, please try again',
-        )}
-      />
-      {errorMessage && <span>{errorMessage}</span>}
+      <Stack>
+        <GoogleAuthButton
+          onSuccess={handleSuccess}
+          onFailure={makeFailureHandler('Sorry, something went wrong, please try again')}
+        />
+
+        {errorMessage && <Error>{errorMessage}</Error>}
+      </Stack>
     </CentreCentre>
   );
 }

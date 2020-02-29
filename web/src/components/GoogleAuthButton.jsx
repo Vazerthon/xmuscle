@@ -4,8 +4,8 @@ import { GoogleLogin } from 'react-google-login';
 import { useMutation } from '@apollo/react-hooks';
 
 import REGISTER from '../graphql/mutations/register';
-
 import settings from '../settings';
+import Button from './primitives/form/Button';
 
 export default function GoogleAuthButton({ onSuccess, onFailure }) {
   const [mutation] = useMutation(REGISTER);
@@ -17,13 +17,12 @@ export default function GoogleAuthButton({ onSuccess, onFailure }) {
   return (
     <GoogleLogin
       clientId={settings.googleClientId}
-      buttonText="Login / Register"
       onSuccess={handleSuccess}
       onFailure={onFailure}
       cookiePolicy="single_host_origin"
       accessType="offline"
       responseType="code"
-      theme="dark"
+      render={({ onClick }) => <Button size="lg" onClick={onClick}>Login / Register</Button>}
     />
   );
 }
