@@ -5,6 +5,8 @@ import { useMutation } from '@apollo/react-hooks';
 
 import REGISTER from '../graphql/mutations/register';
 import settings from '../settings';
+import Icon from './Icon';
+import CentreCentre from './primitives/layout/CentreCentre';
 import Button from './primitives/form/Button';
 
 export default function GoogleAuthButton({ onSuccess, onFailure }) {
@@ -22,7 +24,14 @@ export default function GoogleAuthButton({ onSuccess, onFailure }) {
       cookiePolicy="single_host_origin"
       accessType="offline"
       responseType="code"
-      render={({ onClick }) => <Button size="lg" onClick={onClick}>Login / Register</Button>}
+      render={({ onClick }) => (
+        <Button size="lg" onClick={onClick}>
+          <CentreCentre>
+            <Icon icon="google" colour="highlight" />
+            Login / Register
+          </CentreCentre>
+        </Button>
+      )}
     />
   );
 }
