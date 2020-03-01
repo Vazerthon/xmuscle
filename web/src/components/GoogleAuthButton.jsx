@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import REGISTER from '../graphql/mutations/register';
 import settings from '../settings';
-import Icon from './Icon';
+import Icon from './primitives/Icon';
 import CentreCentre from './primitives/layout/CentreCentre';
 import Button from './primitives/form/Button';
 

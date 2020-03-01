@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import LogoGoogle from 'react-ionicons/lib/LogoGoogle';
 import MdAlert from 'react-ionicons/lib/MdAlert';
 
-import { useTheme, styled } from '../styling';
+import { useTheme, styled } from '../../styling';
 
 const icons = {
   google: LogoGoogle,
