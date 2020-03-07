@@ -18,16 +18,16 @@
   },
   "dependencies": {
     "@hapi/boom": "^9.0.0",
-    "apollo-server": "^2.9.15",
+    "apollo-server": "^2.11.0",
     "dotenv": "^8.2.0",
-    "google-auth-library": "^5.7.0",
-    "graphql": "^14.5.8",
-    "knex": "^0.20.6",
+    "google-auth-library": "^5.10.1",
+    "graphql": "^14.6.0",
+    "knex": "^0.20.11",
     "nodemon": "^2.0.2",
-    "pg": "^7.17.0",
-    "ramda": "^0.26.1",
+    "pg": "^7.18.2",
+    "ramda": "^0.27.0",
     "schemaglue": "^4.0.4",
-    "uuid": "^3.4.0"
+    "uuid": "^7.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
