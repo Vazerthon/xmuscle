@@ -5,12 +5,12 @@ import { ThemeProvider } from 'emotion-theming';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 import theme from './theme';
-import { AuthContextProvider } from './context/auth';
+import { AuthContextProvider } from './context/Auth';
 import apolloClient from './graphql/client';
 import history from './history';
 
 import registerServiceWorker from './registerServiceWorker';
-import App from './components/app';
+import App from './App';
 
 /* eslint-disable react/jsx-filename-extension */
 ReactDOM.render(
