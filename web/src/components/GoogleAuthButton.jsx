@@ -13,7 +13,9 @@ export default function GoogleAuthButton({ onSuccess, onFailure }) {
   const [mutation] = useMutation(REGISTER);
 
   const handleSuccess = ({ code }) => {
-    mutation({ variables: { code } }).then(onSuccess);
+    mutation({ variables: { code } })
+      .then(onSuccess)
+      .catch(onFailure);
   };
 
   return (
