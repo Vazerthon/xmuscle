@@ -13,7 +13,14 @@ export default function Home() {
   return (
     <TwoColumn>
       <>
-
+        <ul>
+          <li>
+            bla
+          </li>
+          <li>
+            foo
+          </li>
+        </ul>
       </>
       <>
         <Heading>Welcome to X Muscle</Heading>

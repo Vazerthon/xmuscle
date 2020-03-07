@@ -1,27 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled, media } from '../../../styling';
+
+import Drawer from './Drawer';
+import TabletOrLess from './TabletOrLess';
+import MoreThanTablet from './MoreThanTablet';
+import RowReverse from './RowReverse';
+import IconButton from '../form/IconButton';
 
 const Grid = styled.div`
   display: -ms-grid;
   display: grid;
+  grid-template-columns: 100fr;
 
   ${media('>tablet')} {
     grid-template-columns: 20vw 100fr;
   }
-
-  ${media('<=tablet')} {
-    grid-template-rows: 20vh 100fr;
-  }
 `;
 
 const Aside = styled.div`
-  ${media('>tablet')} {
-    grid-column: 1;
-  }
-  ${media('<=tablet')} {
-    grid-row: 1;
-  }
+  grid-column: 1;
 `;
 
 const Main = styled.div`
@@ -34,11 +32,27 @@ const Main = styled.div`
 `;
 
 export default function TwoColumn({ children: [aside, main] }) {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const openDrawer = () => setDrawerOpen(true);
+  const closeDrawer = () => setDrawerOpen(false);
+
   return (
-    <Grid>
-      <Aside>{aside}</Aside>
-      <Main>{main}</Main>
-    </Grid>
+    <>
+      <TabletOrLess>
+        <RowReverse>
+          <IconButton icon="menu" onClick={openDrawer} />
+        </RowReverse>
+        <Drawer open={drawerOpen} onCloseClick={closeDrawer}>
+          <Aside>{aside}</Aside>
+        </Drawer>
+      </TabletOrLess>
+      <Grid>
+        <MoreThanTablet>
+          <Aside>{aside}</Aside>
+        </MoreThanTablet>
+        <Main>{main}</Main>
+      </Grid>
+    </>
   );
 }
 
