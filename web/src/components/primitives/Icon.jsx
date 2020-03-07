@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 
 import LogoGoogle from 'react-ionicons/lib/LogoGoogle';
 import MdAlert from 'react-ionicons/lib/MdAlert';
+import MdClose from 'react-ionicons/lib/MdClose';
+import MdMenu from 'react-ionicons/lib/MdMenu';
 
 import { useTheme, styled } from '../../styling';
 
 const icons = {
   google: LogoGoogle,
   alert: MdAlert,
+  close: MdClose,
+  menu: MdMenu,
 };
 
 const sizes = {
@@ -33,8 +37,10 @@ export default function Icon({ icon, size, colour }) {
   return <Component fontSize={theme.spacing.units(sizes[size])} color={colours[colour]} />;
 }
 
+export const iconType = PropTypes.oneOf(Object.keys(icons));
+
 Icon.propTypes = {
-  icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
+  icon: iconType.isRequired,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   colour: PropTypes.oneOf(['primary', 'highlight', 'error']),
 };

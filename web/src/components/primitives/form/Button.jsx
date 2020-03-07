@@ -7,17 +7,24 @@ const sizes = {
 };
 
 const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   background: none;
   outline: none;
   color: ${({ theme }) => theme.colour.highlight};
   border-radius: ${({ theme }) => theme.spacing.units(4)};
   background: ${({ theme }) => theme.colour.primary};
-  min-width: ${({ theme }) => theme.spacing.units(40)};
-  min-height: ${({ theme }) => theme.spacing.units(20)};
   margin: ${({ theme }) => theme.spacing.units(4)};
 
   ${({ theme }) => theme.colour.softUI.boxShadow};
+  
+  min-height: ${({ theme, round }) => round || theme.spacing.units(20)};
+  min-width: ${({ theme, size }) => theme.spacing.units(sizes[size] || sizes.md)};
+  width: ${({ theme, size }) => theme.spacing.units(sizes[size] || sizes.md)};
+  ${({ round }) => round && 'border-radius: 50%'};
+  ${({ theme, size, round }) => round && `height: ${theme.spacing.units(sizes[size] || sizes.md)}`};
 
   :active {
     ${({ theme }) => theme.colour.softUI.activeBoxShadow};
@@ -27,7 +34,6 @@ const Button = styled.button`
     ${({ theme }) => theme.colour.gradient.primary};
   }
 
-  width: ${({ theme, size }) => theme.spacing.units(sizes[size] || sizes.md)};
 `;
 
 export default Button;
