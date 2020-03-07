@@ -7,6 +7,7 @@ import TabletOrLess from './TabletOrLess';
 import MoreThanTablet from './MoreThanTablet';
 import RowReverse from './RowReverse';
 import IconButton from '../form/IconButton';
+import Heading from '../typography/Heading';
 
 const Grid = styled.div`
   display: -ms-grid;
@@ -14,7 +15,7 @@ const Grid = styled.div`
   grid-template-columns: 100fr;
 
   ${media('>tablet')} {
-    grid-template-columns: 20vw 100fr;
+    grid-template-columns: 26vw 100fr;
   }
 `;
 
@@ -26,24 +27,25 @@ const Main = styled.div`
   ${media('>tablet')} {
     grid-column: 2;
   }
-  ${media('<=tablet')} {
-    grid-row: 2;
-  }
 `;
 
-export default function TwoColumn({ children: [aside, main] }) {
+export default function TwoColumn({ children: [aside, main], heading }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const openDrawer = () => setDrawerOpen(true);
   const closeDrawer = () => setDrawerOpen(false);
 
   return (
     <>
+      <MoreThanTablet>
+        { heading && <Heading>{heading}</Heading>}
+      </MoreThanTablet>
       <TabletOrLess>
         <RowReverse>
           <IconButton icon="menu" onClick={openDrawer} />
+          { heading && <Heading>{heading}</Heading>}
         </RowReverse>
         <Drawer open={drawerOpen} onCloseClick={closeDrawer}>
-          <Aside>{aside}</Aside>
+          {aside}
         </Drawer>
       </TabletOrLess>
       <Grid>
@@ -58,4 +60,9 @@ export default function TwoColumn({ children: [aside, main] }) {
 
 TwoColumn.propTypes = {
   children: PropTypes.node.isRequired,
+  heading: PropTypes.string,
+};
+
+TwoColumn.defaultProps = {
+  heading: undefined,
 };
