@@ -12,7 +12,9 @@
     "run-node": "cd dist && node --inspect=0.0.0.0:9229 .",
     "start-app-dev": "nodemon --watch src/ -e js,graphql --exec \"npm run build-app-dev && npm run run-node\"",
     "db": "knex",
-    "migrate:latest": "npm run db migrate:latest",
+    "db:migrate:make": "knex migrate:make",
+    "db:migrate:latest": "knex migrate:latest",
+    "db:migrate:rollback": "knex migrate:rollback",
     "seed": "npm run db seed:run",
     "lint": "eslint ."
   },
