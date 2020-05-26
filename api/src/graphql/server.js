@@ -1,7 +1,9 @@
 import { ApolloServer } from 'apollo-server';
 import glue from 'schemaglue';
 
-import services from '../service/index';
+import services from '../service';
+import dataloaders from '../data/dataloaders';
+
 
 export default () => {
   const options = { js: '**/*.js' };
@@ -13,10 +15,11 @@ export default () => {
     resolvers: resolver,
     context: async ({ req }) => {
       const bearer = req.headers.authorization || '';
-      const user = bearer ? await services.auth.getUserFromBearerToken(bearer) : null;
+      const user = bearer ? await services.auth.getUserFromBearerToken(bearer) : {};
 
       return {
         services,
+        dataloaders,
         user,
       };
     },

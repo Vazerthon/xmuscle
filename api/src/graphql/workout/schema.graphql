@@ -1,0 +1,9 @@
+type Workout {
+  id: String!
+  datetime: String!
+  notes: String
+}
+
+type Query {
+  workouts: [Workout]!
+}
