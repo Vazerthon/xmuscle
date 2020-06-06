@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import LogoGoogle from 'react-ionicons/lib/LogoGoogle';
-import MdAlert from 'react-ionicons/lib/MdAlert';
-import MdClose from 'react-ionicons/lib/MdClose';
-import MdMenu from 'react-ionicons/lib/MdMenu';
+import {
+  MdError, MdClose, MdMenu,
+} from 'react-icons/md';
+
+import { IoLogoGoogle } from 'react-icons/io';
 
 import { useTheme, styled } from '../../styling';
 
 const icons = {
-  google: LogoGoogle,
-  alert: MdAlert,
+  google: IoLogoGoogle,
+  alert: MdError,
   close: MdClose,
   menu: MdMenu,
 };
