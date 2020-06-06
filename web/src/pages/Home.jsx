@@ -1,6 +1,6 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
 
+import useQuery from '../graphql/useQuery';
 import WORKOUTS from '../graphql/queries/workouts';
 
 import Paragraph from '../components/primitives/typography/Paragraph';
@@ -8,7 +8,7 @@ import Title from '../components/primitives/typography/Title';
 import TwoColumn from '../components/primitives/layout/TwoColumn';
 
 export default function Home() {
-  const { data } = useQuery(WORKOUTS);
+  const workouts = useQuery(WORKOUTS, data => data.workouts.length);
 
   return (
     <TwoColumn heading="Welcome to X Muscle">
@@ -24,7 +24,7 @@ export default function Home() {
       </>
       <>
         <Title>Workouts</Title>
-        <Paragraph>{data && data.workouts.length}</Paragraph>
+        <Paragraph>{workouts}</Paragraph>
       </>
     </TwoColumn>
   );
