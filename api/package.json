@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@hapi/boom": "^9.0.0",
-    "apollo-server": "^2.11.0",
+    "apollo-server": "^2.25.3",
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
     "google-auth-library": "^5.10.1",
